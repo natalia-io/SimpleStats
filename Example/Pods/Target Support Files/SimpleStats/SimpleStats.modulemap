@@ -1,0 +1,6 @@
+framework module SimpleStats {
+  umbrella header "SimpleStats-umbrella.h"
+
+  export *
+  module * { export * }
+}

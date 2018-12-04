@@ -1,0 +1,16 @@
+PODS:
+  - SimpleStats (0.1.0)
+
+DEPENDENCIES:
+  - SimpleStats (from `../`)
+
+EXTERNAL SOURCES:
+  SimpleStats:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  SimpleStats: 2701123b76ad4afb4693ddf8a1a24c9c81960aaa
+
+PODFILE CHECKSUM: c3e407c27572037c61c06627ef643906c7dfdc4b
+
+COCOAPODS: 1.5.3

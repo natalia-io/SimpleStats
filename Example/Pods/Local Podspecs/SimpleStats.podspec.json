@@ -1,0 +1,22 @@
+{
+  "name": "SimpleStats",
+  "version": "0.1.0",
+  "summary": "A short description of SimpleStats.",
+  "description": "TODO: Add long description of the pod here.",
+  "homepage": "https://github.com/Natália Mendonça/SimpleStats",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Natália Mendonça": "nataliabaggins@gmail.com"
+  },
+  "source": {
+    "git": "https://github.com/Natália Mendonça/SimpleStats.git",
+    "tag": "0.1.0"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "source_files": "SimpleStats/Classes/**/*"
+}

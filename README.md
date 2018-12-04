@@ -1,6 +1,6 @@
 # SimpleStats
 
-[![CI Status](https://img.shields.io/travis/Natália Mendonça/SimpleStats.svg?style=flat)](https://travis-ci.org/Natália Mendonça/SimpleStats)
+[![CI Status](https://img.shields.io/travis/natalia-io/SimpleStats.svg?style=flat)](https://travis-ci.org/natalia-io/SimpleStats)
 [![Version](https://img.shields.io/cocoapods/v/SimpleStats.svg?style=flat)](https://cocoapods.org/pods/SimpleStats)
 [![License](https://img.shields.io/cocoapods/l/SimpleStats.svg?style=flat)](https://cocoapods.org/pods/SimpleStats)
 [![Platform](https://img.shields.io/cocoapods/p/SimpleStats.svg?style=flat)](https://cocoapods.org/pods/SimpleStats)
@@ -22,7 +22,7 @@ pod 'SimpleStats'
 
 ## Author
 
-Natália Mendonça, nataliabaggins@gmail.com
+Natália Mendonça, natalia@smartmood.io
 
 ## License
 
