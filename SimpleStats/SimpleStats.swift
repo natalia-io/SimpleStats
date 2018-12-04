@@ -181,12 +181,10 @@ extension Array where Element == Int {
 extension Dictionary where Key == Double, Value == Double {
     
     ///Returns the population covariance between the dictionary keys and its values.
-    public func covarianceP() -> Double? {
+    public func covarianceP() -> Double {
         
         let x = Array(self.keys)
         let y = Array(self.values)
-        
-        if self.count == 0 { return nil }
         
         var sum:Double = 0
         
@@ -199,11 +197,9 @@ extension Dictionary where Key == Double, Value == Double {
     }
     
     ///Returns the population covariance between the dictionary keys and its values.
-    public func covariance() -> Double? {
+    public func covariance() -> Double {
         let x = Array(self.keys)
         let y = Array(self.values)
-        
-        if self.count == 0 { return nil }
         
         var sum:Double = 0
         
