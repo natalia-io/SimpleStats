@@ -27,43 +27,43 @@ import Foundation
 extension Array where Element == Double {
     
     ///Calculates the mean of the values of the array.
-    func mean() -> Double {
+    public func mean() -> Double {
         return Double(self.reduce(0, +))/Double(self.count)
     }
     
     
     ///Calculates the mean of the values of the array.
-    func avg() -> Double {
+    public func avg() -> Double {
         return Double(self.reduce(0, +))/Double(self.count)
     }
     
     ///Calculates the population variance
-    func varianceP() -> Double {
+    public func varianceP() -> Double {
         
         return (self.map { pow($0 - self.mean(), 2.0)}.reduce(0, {$0 + $1}))/Double(self.count)
     }
     
     ///Calculates the sample variance
-    func variance() -> Double {
+    public func variance() -> Double {
         
         return (self.map { pow($0 - self.mean(), 2.0)}.reduce(0, {$0 + $1}))/Double(self.count - 1)
     }
     
     
     ///Calculates the population standard deviation
-    func sdP() -> Double {
+    public func sdP() -> Double {
         return sqrt(self.varianceP())
     }
     
     
     ///Calculates the sample standard deviation
-    func sd() -> Double {
+    public func sd() -> Double {
         return sqrt(self.variance())
     }
     
     
     ///Calculates the 95% confidence interval of the values given and returns a closed range.
-    func CI95() -> ClosedRange<Double>{
+    public func CI95() -> ClosedRange<Double>{
         
         let n = self.count
         let sqrtn = Double(n).squareRoot()
@@ -75,7 +75,7 @@ extension Array where Element == Double {
     }
     
     ///Calculates the median.
-    func median() -> Double {
+    public func median() -> Double {
         var median = 0.0
         let sorted = self.sorted()
         let middle = (self.count)/2
@@ -96,7 +96,7 @@ extension Array where Element == Double {
         
     }
     
-    func standardError() -> Double {
+    public func standardError() -> Double {
         return self.sd() / sqrt(Double(self.count))
     }
     
@@ -107,43 +107,43 @@ extension Array where Element == Double {
 extension Array where Element == Int {
     
     ///Calculates the mean of the values of the array.
-    func mean() -> Double {
+    public func mean() -> Double {
         return Double(self.reduce(0, +))/Double(self.count)
     }
     
     
     ///Calculates the mean of the values of the array.
-    func avg() -> Double {
+    public func avg() -> Double {
         return Double(self.reduce(0, +))/Double(self.count)
     }
     
     ///Calculates the population variance
-    func varianceP() -> Double {
+    public func varianceP() -> Double {
         
         return (self.map { pow(Double($0) - self.mean(), 2.0)}.reduce(0, {$0 + $1}))/Double(self.count)
     }
     
     ///Calculates the sample variance
-    func variance() -> Double {
+    public func variance() -> Double {
         
         return (self.map { pow(Double($0) - self.mean(), 2.0)}.reduce(0, {$0 + $1}))/Double(self.count - 1)
     }
     
     
     ///Calculates the population standard deviation
-    func sdP() -> Double {
+    public func sdP() -> Double {
         return sqrt(self.varianceP())
     }
     
     
     ///Calculates the sample standard deviation
-    func sd() -> Double {
+    public func sd() -> Double {
         return sqrt(self.variance())
     }
     
     
     ///Calculates the 95% confidence interval of the values given and returns a closed range.
-    func CI95() -> ClosedRange<Double>{
+    public func CI95() -> ClosedRange<Double>{
         
         let n = self.count
         let sqrtn = Double(n).squareRoot()
@@ -155,7 +155,7 @@ extension Array where Element == Int {
     }
     
     ///Calculates the median.
-    func median() -> Double {
+    public func median() -> Double {
         var median = 0.0
         let sorted = self.sorted()
         let middle = (self.count)/2
@@ -181,7 +181,7 @@ extension Array where Element == Int {
 extension Dictionary where Key == Double, Value == Double {
     
     ///Returns the population covariance between the dictionary keys and its values.
-    func covarianceP() -> Double? {
+    public func covarianceP() -> Double? {
         
         let x = Array(self.keys)
         let y = Array(self.values)
@@ -199,7 +199,7 @@ extension Dictionary where Key == Double, Value == Double {
     }
     
     ///Returns the population covariance between the dictionary keys and its values.
-    func covariance() -> Double? {
+    public func covariance() -> Double? {
         let x = Array(self.keys)
         let y = Array(self.values)
         
@@ -217,19 +217,19 @@ extension Dictionary where Key == Double, Value == Double {
     
     
     ///Returns the population Pearson correlation coefficient between the dictionary keys and its values.
-    func rho() -> Double {
+    public func rho() -> Double {
         let rho = (self.covarianceP() ?? 0.0)/Array(self.keys).sdP()*Array(self.values).sdP()
         return rho
     }
     
     ///Returns the sample Pearson correlation coefficient between the dictionary keys and its values.
-    func r() -> Double {
+    public func r() -> Double {
         let rho = (self.covariance() ?? 0.0)/Array(self.keys).sd()*Array(self.values).sd()
         return rho
     }
     
     
-    func degreesOfFreedom() -> Double {
+    public func degreesOfFreedom() -> Double {
         return Double((2*self.count) - 2)
     }
     

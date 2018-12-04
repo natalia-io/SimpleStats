@@ -11,7 +11,7 @@ Pod::Spec.new do |s|
   s.source           = { :git => 'https://github.com/natalia-io/simplestats.git', :tag => 'v0.0.1' }
   s.social_media_url = 'https://www.facebook.com/axiomaticdoubts'
 
-  s.ios.deployment_target = '11.3'
+  s.ios.deployment_target = '8.0'
   s.swift_version = '4.2'
 
   s.source_files = 'SimpleStats/SimpleStats.swift'
