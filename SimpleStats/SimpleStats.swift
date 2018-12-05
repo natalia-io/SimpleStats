@@ -211,17 +211,17 @@ extension Dictionary where Key == Double, Value == Double {
         return sum / Double(self.count)
     }
     
-    
+   
     ///Returns the population Pearson correlation coefficient between the dictionary keys and its values.
     public func rho() -> Double {
-        let rho = (self.covarianceP() ?? 0.0)/Array(self.keys).sdP()*Array(self.values).sdP()
+        let rho = (self.covarianceP())/(Array(self.keys).sdP()*Array(self.values).sdP())
         return rho
     }
     
     ///Returns the sample Pearson correlation coefficient between the dictionary keys and its values.
     public func r() -> Double {
-        let rho = (self.covariance() ?? 0.0)/Array(self.keys).sd()*Array(self.values).sd()
-        return rho
+        let r = (self.covariance())/(Array(self.keys).sd()*Array(self.values).sd())
+        return r
     }
     
     
