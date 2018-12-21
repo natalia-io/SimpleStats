@@ -60,6 +60,7 @@ extension Array where Element == Double {
     public func sd() -> Double {
         return sqrt(self.variance())
     }
+
     
     
     ///Calculates the 95% confidence interval of the values given and returns a closed range.
@@ -231,3 +232,20 @@ extension Dictionary where Key == Double, Value == Double {
     
 }
 
+
+extension Array where Element == Array<Double> {
+    
+    ///Returns the average sample standard deviation of the arrays.
+    func sdMean() -> Double {
+        let sds = self.map { $0.sd() }
+        let x = sds.mean()
+        return x
+    }
+    
+    ///Returns the average population standard deviation of the arrays.
+    func sdPMean() -> Double {
+        let sds = self.map { $0.sdP() }
+        let x = sds.mean()
+        return x
+    }
+}
