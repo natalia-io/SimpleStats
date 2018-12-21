@@ -232,7 +232,6 @@ extension Dictionary where Key == Double, Value == Double {
     
 }
 
-
 extension Array where Element == Array<Double> {
     
     ///Returns the average sample standard deviation of the arrays.
@@ -241,6 +240,7 @@ extension Array where Element == Array<Double> {
         let x = sds.mean()
         return x
     }
+    
     
     ///Returns the average population standard deviation of the arrays.
     func sdPMean() -> Double {
