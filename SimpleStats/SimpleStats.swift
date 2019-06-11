@@ -85,14 +85,11 @@ extension Array where Element == Double {
             let middle = (self.count)/2
             median = sorted[middle]
         }
-        if self.count%2 == 1 {
-            print(sorted[middle])
-            print(sorted[middle+1])
+        if self.count % 2 == 1 {
             let x = sorted[middle]
             let y = sorted[middle+1]
             median = (x+y)/2.0
         }
-        print(self.count)
         return median
         
     }
@@ -100,6 +97,35 @@ extension Array where Element == Double {
     public func standardError() -> Double {
         return self.sd() / sqrt(Double(self.count))
     }
+    
+    public func percentileofscore(_ score:Double, kind:String = "rank") -> Double {
+        
+        if score.isNaN {
+            return Double.nan
+        }
+        let n = Double(self.count)
+        if n == 0 {
+            return 100.0
+        }
+        
+        switch kind {
+        case "rank":
+            let left = Double(self.filter{$0 != 0 && $0 < score}.count)
+            let right = Double(self.filter{$0 != 0 && $0 <= score}.count)
+            let pct = (right + left + (right > left ? 1 : 0)) * 50.0/n
+            return pct
+        case "strict":
+            return Double(self.filter{$0 != 0 && $0 < score}.count) / n * 100
+        case "weak":
+            return Double(self.filter{$0 != 0 && $0 <= score}.count) / n * 100
+        case "mean":
+            let pct = (Double(self.filter{$0 != 0 && $0 < score}.count) + Double(self.filter{$0 != 0 && $0 <= score}.count)) / n * 50
+            return pct
+        default:
+            return Double.nan
+        }
+    }
+
     
     
 }
@@ -166,8 +192,6 @@ extension Array where Element == Int {
             median = Double(sorted[middle])
         }
         if self.count%2 == 1 {
-            print(sorted[middle])
-            print(sorted[middle+1])
             let x = sorted[middle]
             let y = sorted[middle+1]
             median = Double((x+y))/2.0
@@ -235,7 +259,7 @@ extension Dictionary where Key == Double, Value == Double {
 extension Array where Element == Array<Double> {
     
     ///Returns the average sample standard deviation of the arrays.
-    func sdMean() -> Double {
+    public func sdMean() -> Double {
         let sds = self.map { $0.sd() }
         let x = sds.mean()
         return x
@@ -243,9 +267,23 @@ extension Array where Element == Array<Double> {
     
     
     ///Returns the average population standard deviation of the arrays.
-    func sdPMean() -> Double {
+    public func sdPMean() -> Double {
         let sds = self.map { $0.sdP() }
         let x = sds.mean()
         return x
     }
+    
+    ///Returns the mean of the values of the array.
+    public func mean() -> Double {
+        let means = self.map { $0.mean() }
+        let mean = means.mean()
+        return mean
+    }
+//    let meanUD1 = yesLogs.mean().precisionOne
+//    let meanNoUD1 = noLogs.mean().precisionOne
+//    let sd1 = yesLogs.sd()
+//    let sd2 = noLogs.sd()
+//    let pooledSD = ((sd1*sd1 + sd2*sd2)/2).squareRoot()
+//    cohensd = (meanUD1 - meanNoUD1) / pooledSD
+    
 }
